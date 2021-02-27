@@ -1,0 +1,50 @@
+.player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    height: 0;
+}
+.show {
+    height: 56px;
+    transition: all .5s;
+}
+.hidden {
+    
+}
+.container {
+    padding: 8px 0;
+}
+.image {
+    height: 40px;
+    width: 40px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+.loading {
+    animation: rotate 8s linear infinite ;
+    animation-fill-mode: forwards;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.title {
+    font-weight: bold;
+}
+.play {
+    margin-left: auto;
+}
+.iconfont {
+    font-size: 24px;
+    margin-left: 24px;
+    cursor: pointer;
+}
+.iconfont:hover {
+    color: #1890ff;
+}

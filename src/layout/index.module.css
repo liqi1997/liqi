@@ -1,0 +1,32 @@
+.layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header {
+    background-color: #fff;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .1);
+    padding: 8px 0;
+}
+.logo {
+    height: 40px;
+    width: 40px;
+    margin-right: 8px;
+}
+.appName {
+    margin-right: 48px;
+    font-size: 20px;
+}
+.nav {
+    margin-right: 24px;
+    font-weight: bold;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    padding: 12px;
+    text-align: center;
+}

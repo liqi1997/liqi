@@ -1,0 +1,103 @@
+.item {
+    display: flex;
+    padding: 24px;
+    margin-bottom: 8px;
+    background-color: var(--default-background-color);
+    transition: all .3s;
+}
+.item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .15);
+}
+.logo {
+    height: 140px;
+    width: 140px;
+    border-radius: 8px;
+    margin-right: 24px;
+}
+.content {
+    flex: 1;
+}
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--default-margin);
+}
+.title {
+    font-weight: bold;
+    font-size: var(--large-font-size);
+}
+.status {
+    background-color: var(--theme-color);
+    color: var(--lighter-color);
+    font-size: var(--small-font-size);
+    padding: 0 4px;
+    margin-left: 8px;
+}
+.score {
+    margin-left: auto;
+    color: var(--theme-color);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.avatar  {
+    height: 32px;
+    width: 32px;
+    margin-right: 8px;
+    border-radius: 50%;
+}
+
+.v {
+    height: 14px;
+    width: 14px;
+    margin-left: 4px;
+}
+
+.introduce {
+    color: #888;
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 12px;
+    letter-spacing: .1em;
+    line-height: 1.5em;
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.tag {
+    margin-right: 16px;
+    display: flex;
+    align-items: center;
+    line-height: 1em;
+    font-size: 13px;
+}
+.tag .iconfont {
+    margin-right: 4px;
+    font-size: 16px;
+    line-height: 1em;
+}
+
+
+.time {
+    line-height: 1em;
+    color: #888;
+    font-size: 13px;
+}
+
+.trackList {
+    border-top: 1px dashed #d9d9d9;
+    margin-top: 12px;
+    padding-top: 12px;
+}
+
+.trackTitle {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+.loadMore {
+    text-align: center;
+}

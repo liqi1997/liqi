@@ -1,0 +1,22 @@
+.container {
+    padding-top: 20vh;
+}
+
+.h1 {
+    opacity: 0;
+    animation: show 1s forwards;
+    margin-bottom: 24px;
+}
+.h2 {
+    opacity: 0;
+    animation: show 1s .3s forwards;
+}
+@keyframes show {
+    0% {
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

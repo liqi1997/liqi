@@ -1,0 +1,44 @@
+.condition {
+    margin: 8px 0;
+    padding: 24px;
+    background-color: #fff;
+}
+
+.item {
+    display: flex;
+    cursor: pointer;
+    line-height: 2em;
+}
+.item:first-child {
+    padding-bottom: 16px;
+    border-bottom: 1px dashed #eee;
+}
+.item:last-child {
+    margin-top: 16px;
+}
+
+.title {
+    font-weight: bold;
+    width: 80px;
+}
+
+.list {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+.category {
+    margin-right: 16px;
+}
+.category:hover {
+    color: #1890ff;
+    font-weight: bold;
+}
+.active {
+    color: #1890ff;
+    font-weight: bold;
+}
+
+.albumsList  {
+    display: grid
+}

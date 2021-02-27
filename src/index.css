@@ -1,8 +1,82 @@
-body {
+@import 'https://at.alicdn.com/t/font_2303037_o4lpix8yb4l.css';
+
+body,h1,h2,h3,h4,p,ul {
   margin: 0;
+}
+ul {
+  padding: 0;
+  list-style: none;
+}
+a {
+  color: #222;
+  text-decoration: none;
+}
+a:hover {
+  color: #1890ff;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --theme-color: #1890ff;
+
+  --default-padding: 8px;
+  --default-margin: 8px;
+  --default-border-radius: 8px;
+
+  --default-background-color: #fff;
+  --default-color: #222;
+  --light-color: #eee;
+  --lighter-color: #fff;
+
+  --large-font-size: 18px;
+  --default-font-size: 14px;
+  --small-font-size: 12px;
+
+
+
+  background-color: #f9f9f9;
+  color: #222;
+  font-size: var(--default-font-size);
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  background-color: var(--theme-color);
+  color: var(--lighter-color);
+  padding: 4px 12px;
+  border-radius: 2px;
+  display: inline-block;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #0a6bc5;
 }
