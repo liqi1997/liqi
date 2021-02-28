@@ -1,0 +1,51 @@
+.container  {
+    background-color: #fff;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 8px 0;
+}
+
+.category {
+    margin-right: 24px;
+    cursor: pointer;
+}
+
+.active {
+    color: #1890ff;
+}
+.name {
+    font-weight: bold;
+    padding: 12px 0;
+    font-size: 18px;
+}
+
+.item {
+    display: flex;
+    align-items: baseline;
+    padding: 8px 0;
+}
+.index {
+    font-weight: bold;
+    font-style: italic;
+    margin-right: 8px;
+}
+.first{
+    color: #1890ff;
+}
+.tag {
+    margin-left: auto;
+    color: #999;
+    font-size: 13px;
+}
+
+.time {
+    margin-top: 12px;
+    color: #999;
+    border-top: 1px dashed #d9d9d9;
+    font-size: 12px;
+    padding: 12px  0;
+}

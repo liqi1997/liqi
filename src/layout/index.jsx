@@ -9,6 +9,7 @@ import Player from "../components/Player";
 import Home from "../pages/Home";
 import Me from "../pages/Me";
 import Repo from "../pages/Repo";
+import News from "../pages/News";
 
 function Layout() {
 
@@ -30,12 +31,17 @@ function Layout() {
                         <li>
                             <Link className={styles.nav} to={path}>首页</Link>
                         </li>
+
                         <li>
-                            <Link className={styles.nav} to={path + 'repo'}>热门项目</Link>
+                            <Link className={styles.nav} to={path + 'news'}>资讯</Link>
                         </li>
                         <li>
                             <Link className={styles.nav} to={path + 'xmly'}>听听</Link>
                         </li>
+                        <li>
+                            <Link className={styles.nav} to={path + 'repo'}>热门项目</Link>
+                        </li>
+
                         <li>
                             <Link className={styles.nav} to={path + 'website'}>常用网站</Link>
                         </li>
@@ -56,6 +62,9 @@ function Layout() {
                     </Route>
                     <Route path={path + 'repo'}>
                         <Repo />
+                    </Route>
+                    <Route path={path + 'news'}>
+                        <News />
                     </Route>
                     <Route path={path + 'xmly'}>
                         <XMLY />
