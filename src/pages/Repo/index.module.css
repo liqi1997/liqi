@@ -1,0 +1,80 @@
+.header {
+    margin: 16px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inputPanel {
+    display: flex;
+    border: 1px solid #1890ff;
+}
+.input {
+    padding: 4px 8px;
+    outline: none;
+    border: none;
+}
+.button {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1890ff;
+    cursor: pointer;
+}
+.iconfont {
+    color: #fff;
+}
+
+.item {
+    background-color: #fff;
+    padding: 24px;
+    margin-bottom: 8px;
+    box-shadow: 0 8 12px rgba(0, 0, 0, .2);
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.name {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1em;
+}
+.language {
+    margin-left: 12px;
+    color: #fff;
+    font-size: 12px;
+    background-color: var(--theme-color);
+    padding: 2px 6px;
+    line-height: 1em;
+}
+
+.extra {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+.extra > div {
+    display: flex;
+    align-items: center;
+    line-height: 1em;
+    margin-left: 24px;
+}
+.description {
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.footer {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.time {
+    color: #999;
+    font-size: 12px;
+}

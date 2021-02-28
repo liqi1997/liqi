@@ -8,6 +8,7 @@ import audio from "../store";
 import Player from "../components/Player";
 import Home from "../pages/Home";
 import Me from "../pages/Me";
+import Repo from "../pages/Repo";
 
 function Layout() {
 
@@ -30,10 +31,13 @@ function Layout() {
                             <Link className={styles.nav} to={path}>首页</Link>
                         </li>
                         <li>
-                            <Link className={styles.nav} to={path + 'website'}>常用网站</Link>
+                            <Link className={styles.nav} to={path + 'repo'}>热门项目</Link>
                         </li>
                         <li>
                             <Link className={styles.nav} to={path + 'xmly'}>听听</Link>
+                        </li>
+                        <li>
+                            <Link className={styles.nav} to={path + 'website'}>常用网站</Link>
                         </li>
                         <li>
                             <Link className={styles.nav} to={path + 'me'}>关于我</Link>
@@ -50,11 +54,14 @@ function Layout() {
                     <Route path={path} exact>
                         <Home />
                     </Route>
-                    <Route path={path + 'website'}>
-                        <Website />
+                    <Route path={path + 'repo'}>
+                        <Repo />
                     </Route>
                     <Route path={path + 'xmly'}>
                         <XMLY />
+                    </Route>
+                    <Route path={path + 'website'}>
+                        <Website />
                     </Route>
                     <Route path={path + 'me'}>
                         <Me />

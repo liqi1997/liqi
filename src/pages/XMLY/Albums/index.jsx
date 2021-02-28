@@ -9,34 +9,6 @@ function Albums({ url, xmly, item = {}, audio }) {
     const [page, setPage] = useState(0)
     const [list, setList] = useState([])
 
-    const [track, setTrack] = useState({})
-
-
-
-    function getDetail() {
-        xmly.get(`${url}/albums/browse`, {
-            album_id: item.id,
-            sort: 'asc',
-            page,
-            count: 10
-        }).then(res => {
-            console.log('res', res)
-
-            if (res.code === 0 && res.data && Array.isArray(res.data.tracks)) {
-
-                const { tracks } = res.data;
-
-                if (tracks.length === 0) {
-                    alert('没有更多数据了')
-                    return;
-                }
-
-                setList([...list, ...tracks])
-
-            }
-        })
-    }
-
     function getAudio(id) {
 
         xmly.get(`${url}/tracks/get_single`, {
@@ -60,10 +32,33 @@ function Albums({ url, xmly, item = {}, audio }) {
 
     useEffect(() => {
 
-        if (page > 0) {
-            getDetail();
+        if (page > 0 && item.id && url && xmly) {
+            // getDetail();
+            xmly.get(`${url}/albums/browse`, {
+                album_id: item.id,
+                sort: 'asc',
+                page,
+                count: 10
+            }).then(res => {
+                console.log('res', res)
+
+                if (res.code === 0 && res.data && Array.isArray(res.data.tracks)) {
+
+                    const { tracks } = res.data;
+
+                    if (tracks.length === 0) {
+                        alert('没有更多数据了')
+                        return;
+                    }
+
+                    setList(l => [...l, ...tracks])
+
+                    // setList([...list, ...tracks])
+
+                }
+            })
         }
-    }, [page])
+    }, [page, item.id, url, xmly])
 
     return (
         <div className={styles.item}>
