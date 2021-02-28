@@ -32,6 +32,10 @@ function Me() {
         <p>
             由于本网站是个单页应用（SPA），所以对于SEO并不友好，所以后期会针对静态博客文档可能会换用<em>Next.js</em>等技术。
         </p>
+        <br />
+        <p>
+            另外，本网站只适配于桌面端Chrome浏览器，若没有安装该浏览器，<a href="https://www.google.cn/chrome/" target='_blank' rel='noreferrer'>点我</a> 下载
+        </p>
     </div>
 }
 
