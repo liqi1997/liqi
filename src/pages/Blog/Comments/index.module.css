@@ -1,0 +1,9 @@
+.item {
+    display: flex;
+    border-bottom: 1px dotted #d3d3de;
+}
+.avatar {
+    height: 24px;
+    width: 24px;
+    margin-right: 8px;
+}

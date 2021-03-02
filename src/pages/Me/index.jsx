@@ -36,6 +36,13 @@ function Me() {
         <p>
             另外，本网站只适配于桌面端Chrome浏览器，若没有安装该浏览器，<a href="https://www.google.cn/chrome/" target='_blank' rel='noreferrer'>点我</a> 下载
         </p>
+
+        <ul>
+            <li>喜马拉雅</li>
+            <li>腾讯云开发</li>
+            <li>GitHub API</li>
+            <li>百度翻译</li>
+        </ul>
     </div>
 }
 
