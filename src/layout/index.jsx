@@ -92,7 +92,7 @@ function Layout() {
                         <h1 className={styles.appName}>李奇的网站</h1>
                     </Link>
 
-                    <ul className='left'>
+                    <ul className={styles.tabBar}>
                         <li>
                             <Link className={`${styles.nav} ${pathname === path ? styles.active : ''}`} to={path}>首页</Link>
                         </li>
