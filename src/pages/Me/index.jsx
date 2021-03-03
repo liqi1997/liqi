@@ -42,7 +42,14 @@ function Me() {
             <li>腾讯云开发</li>
             <li>GitHub API</li>
             <li>百度翻译</li>
+            <li>高德地图</li>
         </ul>
+
+        <div>
+            <span className={`iconfont icon-we-chatpay`}></span>
+            <span className={`iconfont icon-Alipaypayment`}></span>
+            <span className={`iconfont icon-bitebi`}></span>
+        </div>
     </div>
 }
 

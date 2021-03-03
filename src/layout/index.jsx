@@ -15,6 +15,10 @@ import Translate from "../pages/Translate";
 import Todo from "../pages/Todo";
 import Blog from "../pages/Blog";
 import Category from "../pages/Category";
+
+import Weather from '../pages/Weather'
+import Tool from '../pages/Tool'
+
 import { useState } from "react";
 
 import store from '../store'
@@ -123,6 +127,12 @@ function Layout() {
                             <Link className={`${styles.nav}  ${pathname.includes('todo') ? styles.active : ''}`} to={path + 'todo'}>待办事项</Link>
                         </li>
                         <li>
+                            <Link className={`${styles.nav}  ${pathname.includes('weather') ? styles.active : ''}`} to={path + 'weather'}>天气</Link>
+                        </li>
+                        <li>
+                            <Link className={`${styles.nav}  ${pathname.includes('tool') ? styles.active : ''}`} to={path + 'tool'}>工具</Link>
+                        </li>
+                        <li>
                             <Link className={`${styles.nav}  ${pathname.includes('me') ? styles.active : ''}`} to={path + 'me'}>关于我</Link>
                         </li>
                     </ul>
@@ -173,6 +183,12 @@ function Layout() {
                     </Route>
                     <Route path={path + 'todo'}>
                         <Todo />
+                    </Route>
+                    <Route path={path + 'weather'}>
+                        <Weather />
+                    </Route>
+                    <Route path={path + 'tool'}>
+                        <Tool />
                     </Route>
                     <Route path={path + 'me'}>
                         <Me />

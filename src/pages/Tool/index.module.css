@@ -1,0 +1,33 @@
+.card {
+    background-color: #fff;
+    margin: 12px 0;
+}
+.header {
+    padding: 12px;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+}
+.body {
+    padding: 12px;
+}
+
+.inputPanel {
+    display: flex;
+    align-items: center;
+}
+
+.arrow {
+    margin: 0 8px;
+}
+
+.separator {
+    margin: 0 8px;
+}
+
+.address, .longitude, .latitude {
+    background-color: #eee;
+    padding: 6px  12px;
+    outline: none;
+
+}
