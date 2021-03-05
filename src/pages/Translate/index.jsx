@@ -8,6 +8,7 @@ class Translate extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            loading: false,
             searchValue: '',
             list: [],
         }
@@ -20,7 +21,8 @@ class Translate extends React.Component {
         const val = e.target.value;
 
         this.setState({
-            searchValue: val
+            searchValue: val,
+            loading: true,
         })
 
         if (this.timer) {
@@ -29,9 +31,9 @@ class Translate extends React.Component {
         this.timer = setTimeout(() => {
             console.log("run")
 
-            // console.log('store', store.user)
-
             if (!val) { return; }
+
+
 
             store.app.callFunction({
                 name: 'translate',
@@ -40,6 +42,10 @@ class Translate extends React.Component {
                 }
             }).then(res => {
                 console.log('res, ', res)
+
+                this.setState({
+                    loading: false
+                })
 
                 if (res.result && Array.isArray(res.result.trans_result)) {
                     that.setState({
@@ -56,23 +62,26 @@ class Translate extends React.Component {
 
     render() {
 
-        const { searchValue, list } = this.state;
+        const { loading, searchValue, list } = this.state;
 
         return (
             <div className='container'>
 
                 <div className={styles.panel}>
 
-                    <textarea className={styles.input} type="text" placeholder='请输入要翻译的词' value={searchValue} onChange={this.onChange} />
+                    <textarea className={styles.input} type="text" placeholder='请输入要翻译的内容（支持中英文）' value={searchValue} onChange={this.onChange} />
 
                     <div className={styles.info}>
 
-                        <ul>
-                            {list.map(item => <li>
-                                {item.dst}
-                            </li>)}
-
-                        </ul>
+                        {!searchValue ? ('请输入要翻译的内容（支持中英文）') : (<div>
+                            {loading ? ('正在翻译中') : (
+                                <ul>
+                                    {list.map((item, index) => <li key={index} className={styles.item}>
+                                        {item.dst}
+                                    </li>)}
+                                </ul>
+                            )}
+                        </div>)}
                     </div>
 
                 </div>

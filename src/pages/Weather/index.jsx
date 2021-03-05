@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import styles from './index.module.css'
+import Title from '../../components/Title'
+import SvgIcon from '../../components/SvgIcon'
 
 function Weather() {
 
@@ -7,10 +9,39 @@ function Weather() {
     const [live, setLive] = useState({})
     const [foreCast, setForeCast] = useState({})
 
-    const [provinceList, setProvinceList] = useState([])
-    const [province, setProvince] = useState(null)
-    const [cityList, setCityList] = useState([])
-    const [city, setCity] = useState(null)
+    // const [provinceList, setProvinceList] = useState([])
+    // const [province, setProvince] = useState(null)
+    // const [cityList, setCityList] = useState([])
+    // const [city, setCity] = useState(null)
+
+    // useEffect(() => {
+
+    //     fetch(`https://restapi.amap.com/v3/config/district?key=e282c61b5a5bde7d9a16cd9684eefd52`).then(res => res.json()).then(res => {
+    //         if (res && Array.isArray(res.districts) && res.districts.length > 0) {
+    //             const list = res.districts[0].districts;
+    //             if (Array.isArray(list)) {
+    //                 setProvinceList(list)
+    //             }
+    //         }
+    //     })
+
+    // }, []);
+
+    // useEffect(() => {
+    //     if (province) {
+
+    //         fetch(`https://restapi.amap.com/v3/config/district?key=e282c61b5a5bde7d9a16cd9684eefd52&keywords=${province}`).then(res => res.json()).then(res => {
+    //             if (res && Array.isArray(res.districts) && res.districts.length > 0) {
+    //                 const list = res.districts[0].districts;
+    //                 if (Array.isArray(list)) {
+    //                     setCityList(list)
+    //                 }
+    //             }
+    //         })
+
+    //     }
+    // }, [province]);
+
 
     useEffect(() => {
 
@@ -18,14 +49,7 @@ function Weather() {
             setAddress(res)
         })
 
-        fetch(`https://restapi.amap.com/v3/config/district?key=e282c61b5a5bde7d9a16cd9684eefd52`).then(res => res.json()).then(res => {
-            if (res && Array.isArray(res.districts) && res.districts.length > 0) {
-                const list = res.districts[0].districts;
-                if (Array.isArray(list)) {
-                    setProvinceList(list)
-                }
-            }
-        })
+
 
         let url = `https://restapi.amap.com/v3/weather/weatherInfo?key=e282c61b5a5bde7d9a16cd9684eefd52&city=320100&extensions=base`
         fetch(url).then(res => res.json()).then(res => {
@@ -44,28 +68,15 @@ function Weather() {
 
     }, []);
 
-    function onProvinceChange(e) {
-        setProvince(e.target.value)
-    }
+    // function onProvinceChange(e) {
+    //     setProvince(e.target.value)
+    // }
 
-    useEffect(() => {
-        if (province) {
 
-            fetch(`https://restapi.amap.com/v3/config/district?key=e282c61b5a5bde7d9a16cd9684eefd52&keywords=${province}`).then(res => res.json()).then(res => {
-                if (res && Array.isArray(res.districts) && res.districts.length > 0) {
-                    const list = res.districts[0].districts;
-                    if (Array.isArray(list)) {
-                        setCityList(list)
-                    }
-                }
-            })
 
-        }
-    }, [province]);
-
-    function onCityChange(e) {
-        setCity(e.target.value)
-    }
+    // function onCityChange(e) {
+    //     setCity(e.target.value)
+    // }
 
     function renderWeek(week) {
         if (week === '1') return '星期一'
@@ -79,16 +90,34 @@ function Weather() {
 
     return <div className='container'>
 
+        {/* <div className={styles.header}>
+
+            <select className={styles.select} placeholder='请选择省份' value={province} onChange={onProvinceChange}>
+                {provinceList.map(item => <option value={item.adcode} key={item.adcode}>{item.name}</option>)}
+            </select>
+
+            <select className={styles.select} placeholder='请选择城市' value={city} onChange={onCityChange}>
+                {cityList.map(item => <option value={item.adcode} key={item.adcode}>{item.name}</option>)}
+            </select>
+
+        </div> */}
+
+
+        <div className={styles.header}>
+            <Title>
+                实时天气
+        </Title>
+        </div>
+
+
         <div className={styles.card}>
             <div className={styles.icon}>
-                <span className={`iconfont icon-location ${styles.locationIcon}`}></span>
+                <SvgIcon name='#icon-5-xiaoshoukanban' size={48} />
                 <div>
                     {live.weather}
                 </div>
             </div>
             <div className={styles.content}>
-
-
 
                 <div className={styles.title}>实时天气</div>
                 <div className={styles.location}>
@@ -131,27 +160,11 @@ function Weather() {
 
 
 
-
-
-
-
-
-
-
         <div className={styles.header}>
+            <Title>
+                天气预报
+        </Title>
 
-            <h3>天气预报</h3>
-
-
-            <select placeholder='请选择省份' value={province} onChange={onProvinceChange}>
-                {provinceList.map(item => <option value={item.adcode} key={item.adcode}>{item.name}</option>)}
-            </select>
-
-            <select placeholder='请选择城市' value={city} onChange={onCityChange}>
-                {cityList.map(item => <option value={item.adcode} key={item.adcode}>{item.name}</option>)}
-            </select>
-
-            <div>{foreCast.reporttime}</div>
 
         </div>
 
@@ -196,6 +209,9 @@ function Weather() {
                     </td>
             </tr>))}
         </table>
+
+        <div className={styles.time}>发布时间：{foreCast.reporttime}</div>
+
 
 
     </div>

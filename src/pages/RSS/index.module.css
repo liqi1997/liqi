@@ -1,0 +1,42 @@
+
+.pageTitle  {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.list {
+    padding: 8px 0;
+}
+.item {
+    background-color: #fff;
+    padding: 12px;
+    margin-bottom: 8px;
+}
+.header {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+}
+.title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+.tag {
+    color: #fff;
+    background-color: orange;
+    font-size: 12px;
+    padding: 2px 4px;
+    line-height: 1em;
+    border-radius: 2px;
+}
+.content {
+    letter-spacing: .1em;
+    padding-bottom: 16px;
+}
+.time {
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    color: #999;
+    font-size: 13px;
+}

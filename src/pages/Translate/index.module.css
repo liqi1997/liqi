@@ -19,3 +19,7 @@
     flex: 1;
     padding: 24px;
 }
+
+.item {
+    font-weight: bold;
+}

@@ -3,24 +3,45 @@ import styles from "./index.module.css";
 
 function Repo() {
 
-    const [page,] = useState(1);
+    const [page, setPage] = useState(1);
     const [perPage,] = useState(10);
-    const [question,] = useState('JavaScript')
+    const [question, setQuestion] = useState('JavaScript')
+    const [status, setStatus] = useState(true)
     const [list, setList] = useState([])
     const [total, setTotal] = useState(0)
 
     useEffect(() => {
 
+        if (!status) { return; }
+
         fetch(`https://api.github.com/search/repositories?page=${page}&per_page=${perPage}&sort=stars&q=${question}`).then(res => res.json()).then(res => {
+            setStatus(false)
             console.log('res ', res.total_count, res.items);
             setTotal(res.total_count)
             if (Array.isArray(res.items)) {
-                // setList(l => [...l, ...res.items])
-                setList([...res.items])
+                setList(res.items)
             }
+        }).catch(err => {
+            setStatus(false)
         })
 
-    }, [page, perPage, question])
+    }, [page, perPage, question, status])
+
+    function search() {
+        setStatus(true)
+    }
+
+    function prev() {
+        if (page === 1) {
+            return;
+        }
+        setStatus(true)
+        setPage(page - 1)
+    }
+    function next() {
+        setStatus(true)
+        setPage(page + 1)
+    }
 
     return <div className={`container ${styles.container}`}>
 
@@ -28,13 +49,16 @@ function Repo() {
         <div className={styles.header}>
             <h3>热门仓库（{total}条）</h3>
 
-            {/* <div className={styles.inputPanel}>
-                <input className={styles.input} type="text" placeholder='请输入关键词' onChange={e => { setQuestion(e.target.value) }} />
-                <div className={styles.button}>
+            <div className={styles.button} style={{ marginRight: 8 }} onClick={prev}>上一页</div>
+            <div className={styles.button} onClick={next}>下一页</div>
+
+
+            <div className={styles.inputPanel}>
+                <input className={styles.input} type="text" placeholder='请输入关键词' value={question} onChange={e => setQuestion(e.target.value)} />
+                <div className={styles.button} onClick={search}>
                     <span className={`iconfont icon-search ${styles.iconfont}`}></span>
                 </div>
-            </div> */}
-
+            </div>
         </div>
 
 

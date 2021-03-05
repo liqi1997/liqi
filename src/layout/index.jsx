@@ -18,6 +18,13 @@ import Category from "../pages/Category";
 
 import Weather from '../pages/Weather'
 import Tool from '../pages/Tool'
+import Echarts from '../pages/Echarts'
+import Resume from '../pages/Resume'
+import NotFound from '../pages/NotFound'
+import RSS from '../pages/RSS'
+
+import Footer from '../components/Footer'
+// import SvgIcon from "../components/SvgIcon";
 
 import { useState } from "react";
 
@@ -29,11 +36,13 @@ function Layout() {
 
     const { pathname } = useLocation();
 
+
+
     const [visible, setVisible] = useState(false)
 
-    function handleLogin() {
-        setVisible(true)
-    }
+    // function handleLogin() {
+    //     setVisible(true)
+    // }
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -98,15 +107,17 @@ function Layout() {
 
                     <ul className={styles.tabBar}>
                         <li>
-                            <Link className={`${styles.nav} ${pathname === path ? styles.active : ''}`} to={path}>首页</Link>
+                            <Link className={`${styles.nav} ${pathname === path ? styles.active : ''}`} to={path}>
+                                {/* <SvgIcon name='#icon-4-yunyingkanban' /> */}
+                                首页</Link>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <Link className={`${styles.nav} ${pathname.includes('blog') ? styles.active : ''} `} to={path + 'blog'}>博客</Link>
                         </li>
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('category') ? styles.active : ''}`} to={path + 'category'}>分类</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('translate') ? styles.active : ''}`} to={path + 'translate'}>翻译</Link>
                         </li>
@@ -117,33 +128,43 @@ function Layout() {
                             <Link className={`${styles.nav}  ${pathname.includes('xmly') ? styles.active : ''}`} to={path + 'xmly'}>听听</Link>
                         </li>
                         <li>
-                            <Link className={`${styles.nav}  ${pathname.includes('repo') ? styles.active : ''}`} to={path + 'repo'}>热门项目</Link>
+                            <Link className={`${styles.nav}  ${pathname.includes('rss') ? styles.active : ''}`} to={path + 'rss'}>RSS</Link>
+                        </li>
+                        <li>
+                            <Link className={`${styles.nav}  ${pathname.includes('repo') ? styles.active : ''}`} to={path + 'repo'}>仓库</Link>
                         </li>
 
-                        <li>
+                        {/* <li>
                             <Link className={`${styles.nav}  ${pathname.includes('website') ? styles.active : ''}`} to={path + 'website'}>常用网站</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('todo') ? styles.active : ''}`} to={path + 'todo'}>待办事项</Link>
                         </li>
+
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('weather') ? styles.active : ''}`} to={path + 'weather'}>天气</Link>
                         </li>
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('tool') ? styles.active : ''}`} to={path + 'tool'}>工具</Link>
                         </li>
+                        {/* <li>
+                            <Link className={`${styles.nav}  ${pathname.includes('echarts') ? styles.active : ''}`} to={path + 'echarts'}>图表编辑</Link>
+                        </li> */}
+                        {/* <li>
+                            <Link className={`${styles.nav}  ${pathname.includes('resume') ? styles.active : ''}`} to={path + 'resume'}>简历</Link>
+                        </li> */}
                         <li>
-                            <Link className={`${styles.nav}  ${pathname.includes('me') ? styles.active : ''}`} to={path + 'me'}>关于我</Link>
+                            <Link className={`${styles.nav}  ${pathname === '/me' ? styles.active : ''}`} to={path + 'me'}>关于我</Link>
                         </li>
                     </ul>
 
 
 
 
-                    <div className={styles.login} onClick={handleLogin}>
+                    {/* <div className={styles.login} onClick={handleLogin}>
                         <div className='button'>登录</div>
-                    </div>
-                    {/* <a href={`https://github.com/login/oauth/authorize?scope=user:email&client_id=271b4721fbd1c239cf33`}>
+                    </div> */}
+                    {/* <a href={`https://github.com/login/oauth/authorize?scope=user:email&client_id=271b4721fbd1c239cf33&redirect_uri=http://localhost:3000/#/`}>
                         <div >Github Login</div>
                     </a> */}
                 </div>
@@ -184,17 +205,26 @@ function Layout() {
                     <Route path={path + 'todo'}>
                         <Todo />
                     </Route>
+                    <Route path={path + 'rss'}>
+                        <RSS />
+                    </Route>
                     <Route path={path + 'weather'}>
                         <Weather />
                     </Route>
                     <Route path={path + 'tool'}>
                         <Tool />
                     </Route>
+                    <Route path={path + 'echarts'}>
+                        <Echarts />
+                    </Route>
+                    <Route path={path + 'resume'}>
+                        <Resume />
+                    </Route>
                     <Route path={path + 'me'}>
                         <Me />
                     </Route>
                     <Route path='*'>
-                        <div>404</div>
+                        <NotFound />
                     </Route>
                 </Switch>
 
@@ -240,9 +270,7 @@ function Layout() {
 
             </main>
 
-            <footer>
-                &copy; 版权归李奇所有
-            </footer>
+            <Footer />
 
 
         </div>

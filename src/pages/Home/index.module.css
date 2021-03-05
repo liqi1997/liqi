@@ -1,15 +1,24 @@
 .container {
     padding-top: 20vh;
+
+ 
 }
 
 .h1 {
-    opacity: 0;
+    opacity: 0; 
     animation: show 1s forwards;
     margin-bottom: 24px;
+
+    background: linear-gradient(to bottom, #51d7e9, #0456a3);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 .h2 {
     opacity: 0;
     animation: show 1s .3s forwards;
+    background: linear-gradient(to bottom, #51d7e9, #0456a3);
+    -webkit-background-clip: text;
+    color: transparent;
 }
 @keyframes show {
     0% {

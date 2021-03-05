@@ -1,0 +1,18 @@
+.title {
+    font-size: 17px;
+    font-weight: bold;
+    position: relative;
+    display:inline-block;
+}
+
+.title::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 70%;
+    height:8px;
+    border-radius: 2px;
+    background: linear-gradient(to right, #1890ff,  #8fbeeb);
+    z-index: -1;
+}

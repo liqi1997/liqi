@@ -1,0 +1,27 @@
+.container {
+    background-color: #fff;
+    margin: 12px 0;
+    padding: 12px;
+}
+
+.passwordPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 200px;
+}
+.label {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 24px;
+}
+.input {
+    padding: 6px 12px;
+}
+
+.table,.td {
+    border: 1px solid #d3d3d3;
+}
+.td {
+padding: 12px;
+}

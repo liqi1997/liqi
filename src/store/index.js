@@ -7,6 +7,8 @@ class Audio {
 
     app = null
 
+    db = null
+
     user = {}
 
     constructor() {
@@ -20,6 +22,8 @@ class Audio {
         this.app = cloudbase.init({
             env: "liqi-website-2g3fl423aa662a73"
         });
+
+        // this.db = this.app.database();
 
     }
 

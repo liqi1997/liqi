@@ -2,10 +2,10 @@
     margin: 16px 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .inputPanel {
+    margin-left: auto;
     display: flex;
     border: 1px solid #1890ff;
 }
@@ -21,6 +21,7 @@
     justify-content: center;
     background-color: #1890ff;
     cursor: pointer;
+    color: #fff;
 }
 .iconfont {
     color: #fff;

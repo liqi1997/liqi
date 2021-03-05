@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.1.10",
     "@xmly-fem/web-jssdk": "^1.4.6",
     "axios": "^0.21.1",
+    "echarts": "^5.0.2",
     "mobx": "^6.1.7",
     "mobx-react-lite": "^3.2.0",
     "react": "^17.0.1",
