@@ -58,16 +58,10 @@ main {
 }
 
 footer {
-    padding: 12px;
-    height: 300px;
-    color: #fff;
-    font-weight: bold;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    background-image: url(../assets/wave.svg);
-    background-repeat: no-repeat;
-    background-size: 100%;
+    padding: 8px;
 }
 
 
@@ -133,3 +127,6 @@ footer {
     cursor: pointer;
     width: 60px;
 }
+
+
+/* @keyframes  */

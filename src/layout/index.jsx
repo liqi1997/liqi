@@ -24,17 +24,38 @@ import NotFound from '../pages/NotFound'
 import RSS from '../pages/RSS'
 
 import Footer from '../components/Footer'
-// import SvgIcon from "../components/SvgIcon";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import store from '../store'
 
 function Layout() {
 
+
     const { path, } = useRouteMatch();
 
-    const { pathname } = useLocation();
+    const { pathname, } = useLocation();
+
+    useEffect(() => {
+
+        if (window.location && window.location.search) {
+            const { search } = window.location;
+            if (search) {
+                const arr = search.split('?code=')
+                if (arr.length > 0) {
+
+                    // store.app.callFunction({
+                    //     name: 'githubLogin',
+                    //     data: {
+                    //         code,
+                    //     }
+                    // }).then(res => {
+                    //     console.log('res', res)
+                    // }).catch(err => console.error)
+                }
+            }
+        }
+    }, []);
 
 
 
@@ -162,10 +183,9 @@ function Layout() {
 
 
                     {/* <div className={styles.login} onClick={handleLogin}>
-                        <div className='button'>登录</div>
                     </div> */}
-                    {/* <a href={`https://github.com/login/oauth/authorize?scope=user:email&client_id=271b4721fbd1c239cf33&redirect_uri=http://localhost:3000/#/`}>
-                        <div >Github Login</div>
+                    {/* <a href={`https://github.com/login/oauth/authorize?scope=user:email&client_id=80aa771ba0d25fda4fb6`}>
+                        <div className='button'>登录</div>
                     </a> */}
                 </div>
 
