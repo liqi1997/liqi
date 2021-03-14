@@ -1,7 +1,6 @@
 {
   "name": "liqi-website",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@cloudbase/js-sdk": "^1.4.0",
     "@testing-library/jest-dom": "^5.11.4",
