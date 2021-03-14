@@ -22,6 +22,7 @@ import Echarts from '../pages/Echarts'
 import Resume from '../pages/Resume'
 import NotFound from '../pages/NotFound'
 import RSS from '../pages/RSS'
+import Stock from '../pages/Stock'
 
 import Footer from '../components/Footer'
 
@@ -132,6 +133,9 @@ function Layout() {
                                 {/* <SvgIcon name='#icon-4-yunyingkanban' /> */}
                                 首页</Link>
                         </li>
+                        <li>
+                            <Link className={`${styles.nav}  ${pathname.includes('stock') ? styles.active : ''}`} to={path + 'stock'}>股票</Link>
+                        </li>
 
                         {/* <li>
                             <Link className={`${styles.nav} ${pathname.includes('blog') ? styles.active : ''} `} to={path + 'blog'}>博客</Link>
@@ -200,6 +204,11 @@ function Layout() {
                     </Route>
                     <Route path={path + 'code'}>
                         <Code />
+                    </Route>
+
+
+                    <Route path={path + 'stock'}>
+                        <Stock />
                     </Route>
                     <Route path={path + 'blog'}>
                         <Blog />

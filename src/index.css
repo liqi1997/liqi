@@ -72,10 +72,11 @@ body {
 .button {
   background-color: var(--theme-color);
   color: var(--lighter-color);
-  padding: 4px 12px;
+  padding: 2px 8px;
   border-radius: 2px;
   display: inline-block;
   cursor: pointer;
+  font-size: 13px;
 }
 .button:hover {
   background-color: #0a6bc5;
