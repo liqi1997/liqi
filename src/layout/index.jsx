@@ -1,34 +1,33 @@
 import { Route, Switch, Link, useRouteMatch, useLocation } from "react-router-dom";
+import React, { lazy, Suspense, useEffect, useState } from "react";
+
 import styles from "./index.module.css";
-import Website from '../pages/Website'
-import XMLY from '../pages/XMLY'
 import logo from "../assets/logo.svg";
 
+import ErrorBoundary from '../components/ErrorBoundary'
 import audio from "../store";
 import Player from "../components/Player";
-import Home from "../pages/Home";
-import Me from "../pages/Me";
-import Repo from "../pages/Repo";
-import News from "../pages/News";
-import Code from "../pages/Code";
-import Translate from "../pages/Translate";
-import Todo from "../pages/Todo";
-import Blog from "../pages/Blog";
-import Category from "../pages/Category";
-
-import Weather from '../pages/Weather'
-import Tool from '../pages/Tool'
-import Echarts from '../pages/Echarts'
-import Resume from '../pages/Resume'
-import NotFound from '../pages/NotFound'
-import RSS from '../pages/RSS'
-import Stock from '../pages/Stock'
-
 import Footer from '../components/Footer'
 
-import { useEffect, useState } from "react";
+import Website from '../pages/Website'
+import XMLY from '../pages/XMLY'
 
 import store from '../store'
+
+const Home = lazy(() => import('../pages/Home'))
+const Me = lazy(() => import('../pages/Me'))
+const Repo = lazy(() => import('../pages/Repo'))
+const News = lazy(() => import('../pages/News'))
+const Translate = lazy(() => import('../pages/Translate'))
+const Todo = lazy(() => import('../pages/Todo'))
+const Blog = lazy(() => import('../pages/Blog'))
+const Weather = lazy(() => import('../pages/Weather'))
+const Tool = lazy(() => import('../pages/Tool'))
+const Echarts = lazy(() => import('../pages/Echarts'))
+const Resume = lazy(() => import('../pages/Resume'))
+const RSS = lazy(() => import('../pages/RSS'))
+const Stock = lazy(() => import('../pages/Stock'))
+const NotFound = lazy(() => import('../pages/NotFound'))
 
 function Layout() {
 
@@ -197,64 +196,69 @@ function Layout() {
 
             <main>
 
-                <Switch>
-                    <Route path={path} exact>
-                        <Home />
-                    </Route>
-                    <Route path={path + 'code'}>
-                        <Code />
-                    </Route>
+                <ErrorBoundary>
 
 
-                    <Route path={path + 'stock'}>
-                        <Stock />
-                    </Route>
-                    <Route path={path + 'blog'}>
-                        <Blog />
-                    </Route>
-                    <Route path={path + 'category'}>
-                        <Category />
-                    </Route>
-                    <Route path={path + 'translate'}>
-                        <Translate />
-                    </Route>
-                    <Route path={path + 'repo'}>
-                        <Repo />
-                    </Route>
-                    <Route path={path + 'news'}>
-                        <News />
-                    </Route>
-                    <Route path={path + 'xmly'}>
-                        <XMLY />
-                    </Route>
-                    <Route path={path + 'website'}>
-                        <Website />
-                    </Route>
-                    <Route path={path + 'todo'}>
-                        <Todo />
-                    </Route>
-                    <Route path={path + 'rss'}>
-                        <RSS />
-                    </Route>
-                    <Route path={path + 'weather'}>
-                        <Weather />
-                    </Route>
-                    <Route path={path + 'tool'}>
-                        <Tool />
-                    </Route>
-                    <Route path={path + 'echarts'}>
-                        <Echarts />
-                    </Route>
-                    <Route path={path + 'resume'}>
-                        <Resume />
-                    </Route>
-                    <Route path={path + 'me'}>
-                        <Me />
-                    </Route>
-                    <Route path='*'>
-                        <NotFound />
-                    </Route>
-                </Switch>
+                    <Suspense fallback={<div>Loading...</div>}>
+
+                        <Switch>
+                            <Route path={path} exact>
+                                <Home />
+                            </Route>
+
+                            <Route path={path + 'stock'}>
+                                <Stock />
+                            </Route>
+                            <Route path={path + 'blog'}>
+                                <Blog />
+                            </Route>
+
+                            <Route path={path + 'translate'}>
+                                <Translate />
+                            </Route>
+                            <Route path={path + 'repo'}>
+                                <Repo />
+                            </Route>
+                            <Route path={path + 'news'}>
+                                <News />
+                            </Route>
+                            <Route path={path + 'xmly'}>
+                                <XMLY />
+                            </Route>
+                            <Route path={path + 'website'}>
+                                <Website />
+                            </Route>
+                            <Route path={path + 'todo'}>
+                                <Todo />
+                            </Route>
+                            <Route path={path + 'rss'}>
+                                <RSS />
+                            </Route>
+                            <Route path={path + 'weather'}>
+                                <Weather />
+                            </Route>
+                            <Route path={path + 'tool'}>
+                                <Tool />
+                            </Route>
+                            <Route path={path + 'echarts'}>
+                                <Echarts />
+                            </Route>
+                            <Route path={path + 'resume'}>
+                                <Resume />
+                            </Route>
+                            <Route path={path + 'me'}>
+                                <Me />
+                            </Route>
+                            <Route path='*'>
+                                <NotFound />
+                            </Route>
+                        </Switch>
+
+                    </Suspense>
+
+                </ErrorBoundary>
+
+
 
                 <Player audio={audio} />
 
