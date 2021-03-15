@@ -1,6 +1,7 @@
 
 import React from 'react'
 import styles from './index.module.css'
+import { Remarkable } from "remarkable";
 
 class Comments extends React.Component {
 
@@ -9,7 +10,17 @@ class Comments extends React.Component {
 
         this.state = {
         }
+
+        this.md = new Remarkable();
+
     }
+
+    renderHtml = (str) => {
+        return {
+            __html: this.md.render(str)
+        }
+    }
+
 
 
     render() {
@@ -24,7 +35,8 @@ class Comments extends React.Component {
 
                     <div>
                         <div className={styles.name}>{item.user ? item.user.login : '--'}</div>
-                        <div>{item.body}</div>
+
+                        <div dangerouslySetInnerHTML={this.renderHtml(item.body)} />
                     </div>
                 </li>)}
             </ul>

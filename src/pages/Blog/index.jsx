@@ -8,13 +8,27 @@ function Blog() {
     const [list, setList] = useState([])
 
     useEffect(() => {
-        const url = 'https://api.github.com/repos/liqi1997/liqi/issues'
+        const url = 'https://gitee.com/api/v5/repos/ritchieli/liqi/issues?access_token=4572c1ff3f13bc997a39deaeba2f99de&state=open&sort=created&direction=desc&page=1&per_page=20'
         fetch(url).then(res => res.json()).then(res => {
             console.log('res ', res)
             if (Array.isArray(res)) {
                 setList(res)
             }
         })
+    }, [])
+
+    const [category, setCategory] = useState([])
+
+    useEffect(() => {
+
+        const url = 'https://gitee.com/api/v5/repos/ritchieli/liqi/labels'
+
+        fetch(url).then(res => res.json()).then(res => {
+            if (Array.isArray(res)) {
+                setCategory(res)
+            }
+        })
+
     }, [])
 
     const [activeItem, setActiveItem] = useState({})
@@ -35,9 +49,17 @@ function Blog() {
     }, [activeItem])
 
     return <div className='container'>
+
+
+        <div className={styles.category}>
+            {category.map(item => <div className={styles.active}>
+                {item.name}
+            </div>)}
+        </div>
+
+
         <ul>
 
-            <li className={styles.header}>最新博客</li>
             {list.map(item => <li className={styles.item} key={item.id}>
 
 

@@ -1,4 +1,7 @@
 
+import wechat from '../../assets/wechat.png'
+import alipay from '../../assets/alipay.jpeg'
+
 function Me() {
     return <div className='container' style={{ paddingTop: 24 }}>
         <h1>李奇</h1>
@@ -99,6 +102,18 @@ function Me() {
             <span className={`iconfont icon-Alipaypayment`}></span>
             <span className={`iconfont icon-bitebi`}></span>
         </div> */}
+
+
+        <h1>赞赏</h1>
+
+        <ul>
+            <li>
+                <img src={wechat} width='300' alt="wechat" />
+            </li>
+            <li>
+                <img src={alipay} width='300' alt="alipay" />
+            </li>
+        </ul>
     </div>
 }
 

@@ -1,3 +1,16 @@
+.category {
+    display: flex;
+    align-items: center;
+}
+.category > div {
+    padding: 8px;
+    cursor: pointer;
+}
+.active {
+    background-color: #1890ff;
+    color: #fff;
+}
+
 .header {
     padding: 8px 0;
     font-weight: bold;

@@ -43,7 +43,14 @@ function Layout() {
             const { search } = window.location;
             if (search) {
                 const arr = search.split('?code=')
+
+                console.log('code', arr)
+
                 if (arr.length > 0) {
+
+
+                    // access_token: '4572c1ff3f13bc997a39deaeba2f99de',
+                    // token_type: 'bearer',
 
                     // store.app.callFunction({
                     //     name: 'githubLogin',
@@ -130,19 +137,15 @@ function Layout() {
                     <ul className={styles.tabBar}>
                         <li>
                             <Link className={`${styles.nav} ${pathname === path ? styles.active : ''}`} to={path}>
-                                {/* <SvgIcon name='#icon-4-yunyingkanban' /> */}
                                 首页</Link>
                         </li>
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('stock') ? styles.active : ''}`} to={path + 'stock'}>股票</Link>
                         </li>
-
                         {/* <li>
                             <Link className={`${styles.nav} ${pathname.includes('blog') ? styles.active : ''} `} to={path + 'blog'}>博客</Link>
-                        </li>
-                        <li>
-                            <Link className={`${styles.nav}  ${pathname.includes('category') ? styles.active : ''}`} to={path + 'category'}>分类</Link>
                         </li> */}
+
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('translate') ? styles.active : ''}`} to={path + 'translate'}>翻译</Link>
                         </li>
@@ -184,11 +187,7 @@ function Layout() {
                     </ul>
 
 
-
-
-                    {/* <div className={styles.login} onClick={handleLogin}>
-                    </div> */}
-                    {/* <a href={`https://github.com/login/oauth/authorize?scope=user:email&client_id=80aa771ba0d25fda4fb6`}>
+                    {/* <a href={`https://gitee.com/oauth/authorize?client_id=6deabf8a317925c972edc28ebf7867294a1501b90ce8096e1b076e17b3b230d0&redirect_uri=http://localhost:3000&response_type=code`}>
                         <div className='button'>登录</div>
                     </a> */}
                 </div>
