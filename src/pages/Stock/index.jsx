@@ -22,6 +22,8 @@ function Stock() {
     const [list, setList] = useState([])
     const [total, setTotal] = useState(0)
 
+    const [stockName, setStockName] = useState(null)
+
     useEffect(() => {
 
         let str = ''
@@ -29,7 +31,12 @@ function Stock() {
             str = `&stock_type=${active}`
         }
 
-        fetch(`http://cone387.top:8080/stock/info/?page=${page}&page_size=10${str}`).then(res => res.json()).then(res => {
+        let name = '';
+        if (stockName) {
+            name = `&name=${stockName}`
+        }
+
+        fetch(`http://cone387.top:8080/stock/info/?page=${page}&page_size=10${str}${name}`).then(res => res.json()).then(res => {
             if (typeof res.count === 'number') {
                 setTotal(res.count)
             }
@@ -37,7 +44,7 @@ function Stock() {
                 setList(res.results)
             }
         })
-    }, [page, active])
+    }, [page, active, stockName])
 
     function prev() {
         if (page === 1) {
@@ -88,6 +95,12 @@ function Stock() {
     const [detail, setDetail] = useState(null)
     function seeDetail(code) {
         setDetail(code)
+    }
+
+    const [searchValue, setSearchValue] = useState('')
+    function search() {
+        setStockName(searchValue);
+        setPage(1);
     }
 
     return <div className='container'>
@@ -148,6 +161,13 @@ function Stock() {
 
             </div>
             <div className={styles.right}>
+
+                <div className={styles.search}>
+                    <input className={styles.searchInput} type="text" placeholder='请输入股票名称' value={searchValue} onChange={e => { setSearchValue(e.target.value) }} />
+                    <div className={styles.searchButton} onClick={search}>搜索</div>
+                </div>
+
+
                 <div className={styles.card}>
                     {renderCompany()}
                 </div>

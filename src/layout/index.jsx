@@ -145,18 +145,18 @@ function Layout() {
                             <Link className={`${styles.nav} ${pathname.includes('blog') ? styles.active : ''} `} to={path + 'blog'}>博客</Link>
                         </li> */}
 
-                        <li>
+                        {/* <li>
                             <Link className={`${styles.nav}  ${pathname.includes('translate') ? styles.active : ''}`} to={path + 'translate'}>翻译</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('news') ? styles.active : ''}`} to={path + 'news'}>资讯</Link>
                         </li>
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('xmly') ? styles.active : ''}`} to={path + 'xmly'}>听听</Link>
                         </li>
-                        <li>
+                        {/* <li>
                             <Link className={`${styles.nav}  ${pathname.includes('rss') ? styles.active : ''}`} to={path + 'rss'}>RSS</Link>
-                        </li>
+                        </li> */}
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('repo') ? styles.active : ''}`} to={path + 'repo'}>仓库</Link>
                         </li>
@@ -164,7 +164,7 @@ function Layout() {
                         {/* <li>
                             <Link className={`${styles.nav}  ${pathname.includes('website') ? styles.active : ''}`} to={path + 'website'}>常用网站</Link>
                         </li> */}
-                        <li>
+                        {/* <li>
                             <Link className={`${styles.nav}  ${pathname.includes('todo') ? styles.active : ''}`} to={path + 'todo'}>待办事项</Link>
                         </li>
 
@@ -173,7 +173,7 @@ function Layout() {
                         </li>
                         <li>
                             <Link className={`${styles.nav}  ${pathname.includes('tool') ? styles.active : ''}`} to={path + 'tool'}>工具</Link>
-                        </li>
+                        </li> */}
                         {/* <li>
                             <Link className={`${styles.nav}  ${pathname.includes('echarts') ? styles.active : ''}`} to={path + 'echarts'}>图表编辑</Link>
                         </li> */}

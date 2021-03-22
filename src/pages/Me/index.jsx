@@ -106,12 +106,12 @@ function Me() {
 
         <h1>赞赏</h1>
 
-        <ul>
+        <ul className='left'>
             <li>
-                <img src={wechat} width='300' alt="wechat" />
+                <img src={wechat} height={400} alt="wechat" />
             </li>
             <li>
-                <img src={alipay} width='300' alt="alipay" />
+                <img src={alipay} height={400} alt="alipay" />
             </li>
         </ul>
     </div>
